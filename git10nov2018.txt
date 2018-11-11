@@ -1,0 +1,70 @@
+
+create database miniproject;
+use database miniproject;
+
+create table store(store_id int,store_num string,city string,address string,
+	open_date date, close_date date) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LOCATION '/miniproject/store'
+
+create table employee(emp_id              	int
+               emp_num             	int                 	                    
+store_name          	string              	                    
+emp_name            	string              	                    
+join_date           	date                	                    
+designation         	string  ) row format delimited fields terminated by ',' location '/miniproject/employee'
+
+create table loyalty(
+loyal_member        	int                 	                    
+cust_no             	int                 	                    
+card_no             	string              	                    
+join_date           	date                	                    
+points              	int  )
+row format delimited fields terminated by ',' location '/miniproject/loyalty'
+
+create table promotion(
+promo_code          	int                 	                    
+promo_desc          	string              	                    
+descript            	string              	                    
+promo_start         	date                	                    
+promo_end           	date )
+row format delimited fields terminated by ',' location '/miniproject/promotion'
+
+
+create table product(
+product_id          	int                 	                    
+product_code        	string              	                    
+add_date            	date                	                    
+remove_date         	date       
+)
+row format delimited fields terminated by ',' location '/miniproject/product'
+
+create table store(
+store_id            	int                 	                    
+store_num           	string              	                    
+city                	string              	                    
+address             	string              	                    
+open_date           	date                	                    
+close_date          	date )
+row format delimited fields terminated by ',' location '/miniproject/store'
+create table trans_code(
+trans_id            	int                 	                    
+trans_code          	string              	                    
+trans_desc          	string    
+)row format delimited fields terminated by ',' location '/miniproject/tans_code'
+
+hadoop fs -copyFromLocal store.csv /miniproject/store/
+hadoop fs -copyFromLocal trans_log.csv /miniproject/translog/
+hadoop fs -copyFromLocal loyalty.csv /miniproject/loyalty/
+hadoop fs -copyFromLocal promotion.csv /miniproject/promotion/
+
+
+
+
+
+
+
+
+
+
+
+
+
